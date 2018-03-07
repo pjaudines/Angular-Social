@@ -24,6 +24,14 @@ export class NoteDetailComponent {
     }
   }
 
+  addDislike(val: number) {
+    if (this.note.id) {
+      this.noteService.updateNote(this.note.id, { dislike: val + 1 });
+    } else {
+      console.error('Note missing ID!');
+    }
+  }
+
   deleteNote(id: string) {
     this.noteService.deleteNote(id);
   }
